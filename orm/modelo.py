@@ -21,6 +21,15 @@ class Pais(Base):
     def __repr__(self):
         return f"Pais: {self.nombre}"
 
+    def obtener_cantidad_plataformas(self):
+        return len(self.plataformas)
+
+    def obtener_cantidad_series(self):
+        return len(self.series)
+
+    def obtener_cantidad_actores(self):
+        return len(self.actores)
+
 
 class Plataforma(Base):
     __tablename__ = 'plataforma'
@@ -34,6 +43,9 @@ class Plataforma(Base):
 
     def __repr__(self):
         return f"Plataforma: {self.nombre}"
+
+    def obtener_cantidad_series(self):
+        return len(self.series)
 
 
 class Serie(Base):
@@ -53,6 +65,15 @@ class Serie(Base):
 
     def __repr__(self):
         return f"Serie: {self.titulo}"
+
+    def obtener_edad_actores(self):
+        edades = [a.edad for a in self.actores if a.edad is not None]
+        if len(edades) > 0:
+            return sum(edades) / len(edades)
+        return 0
+
+    def obtener_premios_series(self):
+        return len(self.premios)
 
 class Actor(Base):
     __tablename__ = 'actor'

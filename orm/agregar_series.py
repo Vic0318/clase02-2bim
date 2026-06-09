@@ -62,3 +62,24 @@ except Exception as e:
     print(f"Error al cargar series: {e}")
 finally:
     session.close()
+
+def __repr__(self):
+    return f"Serie: {self.nombre}"
+
+def obtener_edad_actores(self):
+    edades = [e.edad for e in self.actores]
+    if len(edades) > 0:
+        suma = sum(edades)
+        promedio = suma / len(edades)
+        return promedio
+    else:
+        return 0
+
+def obtener_premios_series(self):
+    premios = [p.numero_premios for p in self.premios]
+    if len(premios) > 0:
+        suma = sum(premios)
+        promedio = suma / len(premios)
+        return promedio
+    else:
+        return 0
