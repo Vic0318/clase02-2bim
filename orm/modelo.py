@@ -52,7 +52,7 @@ class Serie(Base):
     premios    = relationship('Premio',     back_populates='serie')
 
     def __repr__(self):
-        return f"Serie: {self.nombre}"
+        return f"Serie: {self.titulo}"
 
 class Actor(Base):
     __tablename__ = 'actor'
